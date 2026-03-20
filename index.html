@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cornelia Manda | Portfolio | Short Films</title>
-    <!-- Made by: Cornelia Manda, December 10th, 2025 for GBDA228--> 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
@@ -24,10 +22,17 @@
             color: #333;
             background-color: #E0E2DF;
             line-height: 1.6;
-      }
+        }
 
         h1, h2, h3, a, th {
             font-family: "Playfair Display", serif;
+        }
+
+        /* --- Link Reset: Prevents blue/purple default colors --- */
+        a, a:visited, a:active {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
         }
 
         /* layout */
@@ -39,13 +44,15 @@
             min-height: 100vh;
         }
 
-        /* nav system */
+        /* --- Navigation System --- */
         header {
             display: grid;
-            grid-template-columns: 50% 50%;
+            grid-template-columns: 30% 70%;
             align-items: center;
             background-color: #DDBDBE;
             padding: 17px 60px;
+            position: relative;
+            z-index: 1000;
         }
 
         .logo {
@@ -65,20 +72,58 @@
         nav li {
             display: inline-block;
             margin-left: 40px;
+            position: relative; 
+            vertical-align: middle;
         }
 
         nav a {
-            text-decoration: none; 
-            color: #655C5B; 
+            color: #655C5B !important; 
             font-size: 1.1em;
-            transition: color 0.3s ease;
+            display: inline-block;
+            padding: 10px 0;
         }
 
         nav a:hover {
-            color: white; 
+            color: white !important; 
         }
 
-      
+        /* --- Dropdown Logic --- */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DDBDBE; 
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            text-align: left;
+            padding: 10px 0;
+            top: 100%; 
+            left: 0; 
+            margin-top: -5px;
+        }
+
+        .dropdown-content li {
+            display: block;
+            margin: 0;
+        }
+
+        /* Dropdown links use Playfair and stay the correct dark grey */
+        .dropdown-content a, .dropdown-content a:visited {
+            color: #655C5B !important; 
+            padding: 12px 20px;
+            display: block;
+            font-size: 1.1em;
+            font-family: "Playfair Display", serif;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #E0E2DF;
+            color: #816B6E !important;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
         /* short films title */
         .page-title {
@@ -96,12 +141,13 @@
             padding: 12px 30px;
             font-size: 1em;
             background-color: #C99B9B;
-            color: white;
+            color: white !important;
             text-decoration: none;
             font-family: "Playfair Display", serif;
             font-weight: bold;
             transition: all 0.4s ease;
             margin-left: 80px;
+            margin-top: 20px;
             margin-bottom: 20px;
         }
 
@@ -110,7 +156,7 @@
             transform: rotate(-2deg);
         }
 
-        /* layout system */
+        /* films layout */
         .films-container {
             padding: 0 100px 100px 100px; 
             display: flex;
@@ -145,7 +191,6 @@
         .film-date {
             position: absolute;
             top: 50%; 
-            
             font-family: "Roboto", sans-serif;
             color: #C99B9B; 
             font-weight: 700;
@@ -153,24 +198,20 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             white-space: nowrap; 
-          /* again did research on wrapping, very vital*/  
-          
             z-index: 5;
         }
 
-        /* left margin */
         .date-left {
             left: -40px; 
             transform: translate(-50%, -50%) rotate(-90deg);
         }
 
-        /* RIGHT margin placement */
         .date-right {
             right: -40px; 
             transform: translate(50%, -50%) rotate(90deg);
         }
 
-        /* main paragraph text styling */
+        /* text styling */
         .film-info {
             padding: 10px;
         }
@@ -186,13 +227,14 @@
             font-size: 1em;
             color: #5D4F51;
             margin-bottom: 25px;
+            font-family: "Roboto", sans-serif;
         }
 
         .watch-btn {
             display: inline-block;
             padding: 10px 30px;
             background-color: transparent;
-            color: #816B6E;
+            color: #816B6E !important;
             border: 2px solid #816B6E;
             text-decoration: none;
             font-family: "Playfair Display", serif;
@@ -202,27 +244,24 @@
 
         .watch-btn:hover {
             background-color: #816B6E;
-            color: white;
+            color: white !important;
             transform: rotate(-2deg);
         }
 
-        /* award badge thingy in the corner */
+        /* award badge */
         .award-badge {
             position: absolute;
             top: -25px;
             right: -25px; 
-            
             width: 110px;
             height: 110px;
             border-radius: 50%;
             background-color: #DDBDBE;
             color: #655C5B;
-            
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            
             box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
             z-index: 10;
             transform: rotate(15deg); 
@@ -234,6 +273,7 @@
             line-height: 1.2;
             font-weight: 900;
             text-transform: uppercase;
+            font-family: "Roboto", sans-serif;
         }
 
         .image-right .award-badge {
@@ -276,19 +316,12 @@
         .footer-table td {
             padding: 5px 0;
             font-family: "Roboto", sans-serif;
-        }
-
-        .footer-table a {
-            color: #655C5B;
-            text-decoration: none;
-            font-weight: 700;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
+            vertical-align: middle;
+            white-space: nowrap;
         }
 
         .footer-table a:hover {
-            color: #816B6E;
-            border-bottom: 1px solid #816B6E;
+            color: #816B6E !important;
         }
 
         .copyright {
@@ -307,14 +340,25 @@
             <div class="logo">Cornelia Manda</div>
             <nav>
                 <ul>
-                    <li><a href="https://cornelia-manda.github.io/cornelia.manda/">Home</a></li>
+                    <li><a href="https://cornelia-manda.github.io/home/">Home</a></li>
                     <li><a href="https://cornelia-manda.github.io/portfolio/">Portfolio</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Projects</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Videography</a></li>
+                            <li><a href="#">Branding</a></li>
+                            <li><a href="#">Web and App</a></li>
+                            <li><a href="#">Graphic Design</a></li>
+                        </ul>
+                    </li>
+
                     <li><a href="https://cornelia-manda.github.io/contact-aboutme/">Contact</a></li>
                 </ul>
             </nav>
         </header>
 
-        <a href="https://cornelia-manda.github.io/a3-manda_cornelia-portfolio/" class="back-button">← Back to Portfolio</a>
+        <a href="https://cornelia-manda.github.io/portfolio/" class="back-button">← Back to Portfolio</a>
 
         <h1 class="page-title">SHORT FILMS</h1>
 
@@ -323,7 +367,6 @@
             <section class="film-row">
                 <div class="image-wrapper">
                     <div class="film-date date-left">2025</div>
-                    
                     <div class="award-badge">
                         <h3>Golden Boar<br>Award</h3>
                     </div>
@@ -335,7 +378,7 @@
                     <p class="film-description">
                         A short film created for my GER102 final project, utilizing purely the vocabulary taught in class. I am deeply thankful to have served as the screenwriter, director, editor, and one of the main actresses for this project. The film won a Golden Boar Award at the University of Waterloo.
                     </p>
-                    <a href="https://youtu.be/CNUMLrKxVPs?si=sUgle8phrpXuYcm9"target="_blank" class="watch-btn">Watch Now</a>
+                    <a href="https://youtu.be/CNUMLrKxVPs?si=sUgle8phrpXuYcm9" target="_blank" class="watch-btn">Watch Now</a>
                 </div>
             </section>
 
@@ -350,7 +393,6 @@
 
                 <div class="image-wrapper image-right">
                     <div class="film-date date-right">2024</div>
-                    
                     <div class="award-badge">
                         <h3>Golden Boar<br>Award</h3>
                     </div>
@@ -361,11 +403,10 @@
             <section class="film-row">
                 <div class="image-wrapper">
                     <div class="film-date date-left">2023 / 2024</div>
-                    
                     <div class="award-badge">
                         <h3>1st Place<br>Best Film</h3>
                     </div>
-                    <img src="1st-place.jpeg" alt="Photo in Yearbook of Cornelia and her shortfilm teammate holding Eagles View Film Festival award and certificate">
+                    <img src="1st-place.jpeg" alt="Photo in Yearbook">
                 </div>
                 
                 <div class="film-info">
@@ -386,7 +427,6 @@
 
                 <div class="image-wrapper image-right">
                     <div class="film-date date-right">2022 / 2023</div>
-                    
                     <div class="award-badge">
                         <h3>2nd Place<br>Outstanding Achievement</h3>
                     </div>
